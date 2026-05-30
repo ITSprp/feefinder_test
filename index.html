@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FeeFinder – Find Your Perfect School or College</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar">
+    <div class="nav-logo">
+      <div class="logo-circle">+</div>
+      <span class="logo-text">FeeFinder</span>
+    </div>
+    <div class="nav-links">
+      <a href="#" class="nav-link active">Search</a>
+      <a href="#" class="nav-link">Compare</a>
+      <a href="#" class="nav-link">Saved</a>
+      <button class="btn-signin">Sign In</button>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="hero-badge">
+      <span class="badge-dot">🏫</span>
+      <span>1,200+ INSTITUTIONS LISTED</span>
+    </div>
+    <h1 class="hero-title">Find Your Perfect</h1>
+    <h1 class="hero-title highlight">School or College</h1>
+    <p class="hero-sub">
+      Search across institutions, compare fees, and filter<br/>
+      exactly what matters to you.
+    </p>
+  </section>
+
+  <!-- ========== FILTER PANEL ========== -->
+  <section class="filter-section" id="filterSection">
+    <div class="filter-card">
+      <div class="filter-header">
+        <div class="filter-title">
+          <span class="filter-icon">≡</span>
+          <span>Filter Results</span>
+        </div>
+        <button class="reset-btn" id="resetBtn">Reset All</button>
+      </div>
+
+      <div class="filter-body">
+        <!-- Left Column -->
+        <div class="filter-col">
+
+          <!-- Institution Type -->
+          <div class="filter-group">
+            <div class="filter-label">INSTITUTION TYPE</div>
+            <div class="pill-group" id="typeGroup">
+              <button class="pill active" data-value="All">All</button>
+              <button class="pill" data-value="School">School</button>
+              <button class="pill" data-value="College">College</button>
+              <button class="pill" data-value="University">University</button>
+            </div>
+          </div>
+
+          <!-- Medium -->
+          <div class="filter-group">
+            <div class="filter-label">MEDIUM OF INSTRUCTION</div>
+            <div class="pill-group" id="mediumGroup">
+              <button class="pill active" data-value="All">All</button>
+              <button class="pill" data-value="English">English</button>
+              <button class="pill" data-value="Hindi">Hindi</button>
+              <button class="pill" data-value="Odia">Odia</button>
+              <button class="pill" data-value="Bilingual">Bilingual</button>
+            </div>
+          </div>
+
+          <!-- Facilities -->
+          <div class="filter-group">
+            <div class="filter-label">FACILITIES</div>
+            <div class="pill-group" id="facilitiesGroup">
+              <button class="pill fac-pill" data-value="Hostel">Hostel</button>
+              <button class="pill fac-pill" data-value="Transport">Transport</button>
+              <button class="pill fac-pill" data-value="Sports">Sports</button>
+              <button class="pill fac-pill" data-value="Science Lab">Science Lab</button>
+              <button class="pill fac-pill" data-value="Library">Library</button>
+              <button class="pill fac-pill" data-value="Smart Class">Smart Class</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column -->
+        <div class="filter-col">
+
+          <!-- Board -->
+          <div class="filter-group">
+            <div class="filter-label">BOARD / AFFILIATION</div>
+            <div class="pill-group" id="boardGroup">
+              <button class="pill active" data-value="All">All</button>
+              <button class="pill" data-value="CBSE">CBSE</button>
+              <button class="pill" data-value="ICSE">ICSE</button>
+              <button class="pill" data-value="State Board">State Board</button>
+              <button class="pill" data-value="IB">IB</button>
+              <button class="pill" data-value="IGCSE">IGCSE</button>
+            </div>
+          </div>
+
+          <!-- Fee Range -->
+          <div class="filter-group">
+            <div class="filter-label-row">
+              <span class="filter-label">ANNUAL FEE RANGE</span>
+              <span class="fee-range-display" id="feeDisplay">₹0 – ₹5,00,000+</span>
+            </div>
+            <div class="range-wrapper">
+              <input
+                type="range"
+                id="feeRange"
+                min="0"
+                max="500000"
+                step="5000"
+                value="500000"
+                class="range-slider"
+              />
+            </div>
+          </div>
+
+          <!-- Rating -->
+          <div class="filter-group">
+            <div class="filter-label">MINIMUM RATING</div>
+            <div class="star-group" id="starGroup">
+              <span class="star" data-value="1">★</span>
+              <span class="star" data-value="2">★</span>
+              <span class="star" data-value="3">★</span>
+              <span class="star" data-value="4">★</span>
+              <span class="star" data-value="5">★</span>
+              <span class="any-rating" id="anyRating">Any rating</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RESULTS HEADER ========== -->
+  <section class="results-section">
+    <div class="results-header">
+      <p class="results-count" id="resultsCount">Showing 24 institutions</p>
+      <div class="sort-wrapper">
+        <label class="sort-label">SORT BY</label>
+        <select class="sort-select" id="sortSelect">
+          <option value="relevance">Relevance</option>
+          <option value="fee-asc">Fee: Low to High</option>
+          <option value="fee-desc">Fee: High to Low</option>
+          <option value="rating">Top Rated</option>
+          <option value="name">Name A–Z</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- ========== CARDS GRID ========== -->
+    <div class="cards-grid" id="cardsGrid">
+      <!-- Cards injected by JS -->
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-state" id="emptyState" style="display:none;">
+      <div class="empty-icon">🔍</div>
+      <h3>No institutions found</h3>
+      <p>Try adjusting your filters or search with different keywords.</p>
+    </div>
+  </section>
+
+  <!-- ========== BOTTOM SEARCH BAR ========== -->
+  <div class="bottom-bar">
+    <div class="bottom-bar-inner">
+      <div class="search-input-wrap">
+        <span class="search-prefix-icon">🔍</span>
+        <input
+          type="text"
+          id="searchInput"
+          class="search-input"
+          placeholder="Search schools, colleges, locations..."
+          autocomplete="off"
+        />
+        <!-- Suggestions -->
+        <div class="suggestions-box" id="suggestionsBox"></div>
+      </div>
+      <button class="filter-toggle-btn" id="filterToggleBtn">
+        <span>≡</span> Filters
+        <span class="filter-count-badge" id="filterCountBadge" style="display:none;">0</span>
+      </button>
+      <button class="search-btn" id="searchBtn">Search</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
